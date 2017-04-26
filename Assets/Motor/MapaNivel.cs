@@ -15,8 +15,7 @@ public class MapaNivel : MonoBehaviour {
 	void Start () {
 		estado = EstadoMapa.CARGANDO;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		switch (estado) {
 			

@@ -25,7 +25,6 @@ public class CargadorMapas : MonoBehaviour  {
 		seguirCargaMapa();
 	}
 
-	//Retorna true mientras siga cargando el mapa
 	public void seguirCargaMapa(){
 		//TODO
 		return;

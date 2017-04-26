@@ -14,7 +14,4 @@ public class Celda : MonoBehaviour {
 		
 	}
 
-	public static Celda crearCelda(TipoPieza tipoPieza, byte metadata){
-		return null;
-	}
 }
