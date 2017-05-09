@@ -34,7 +34,7 @@ public class Pieza : MonoBehaviour {
 		};
 
 		byte[,,] metadata = {{{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0}}};
-		crearPieza (TipoPieza.MADERA, existencia, metadata);
+		crearPieza (TipoPieza.METAL, existencia, metadata);
 	}
 	
 	// Update is called once per frame

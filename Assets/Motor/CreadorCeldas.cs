@@ -8,6 +8,7 @@ public class CreadorCeldas : MonoBehaviour {
 	public Celda celdaTerreno1;
 	public Celda celdaTerreno2;
 	public Celda celdaMadera;
+	public Celda celdaMetal;
 	public Celda celdaError;
 	private enum TipoEsquinaCara {BORDE_ESQUINERO, BORDE_HORIZ, BORDE_VERT, ESQUINA, NADA};
 	public Celda crearCelda(TipoPieza tipoPieza, bool[,,] mapaVecinos, byte metadata){
@@ -16,6 +17,8 @@ public class CreadorCeldas : MonoBehaviour {
 				return crearCeldaTerreno (mapaVecinos, metadata);
 			case TipoPieza.MADERA:
 				return crearCeldaMadera (mapaVecinos, metadata);
+			case TipoPieza.METAL:
+				return crearCeldaMetal (mapaVecinos, metadata);
 			default:
 				return Instantiate(celdaError);
 		}
@@ -40,6 +43,12 @@ public class CreadorCeldas : MonoBehaviour {
 
 	Celda crearCeldaMadera(bool[,,] mapaVecinos, byte metadata){
 		Celda resultado = getCeldaPartePieza (celdaMadera, false, mapaVecinos);
+		return resultado;
+
+	}
+
+	Celda crearCeldaMetal(bool[,,] mapaVecinos, byte metadata){
+		Celda resultado = getCeldaPartePieza (celdaMetal, false, mapaVecinos);
 		return resultado;
 
 	}
@@ -233,7 +242,10 @@ public class CreadorCeldas : MonoBehaviour {
 			}
 			resultado.GetComponent<MeshRenderer> ().materials = matsUsados;
 		}
+
+		modelo3D.RecalculateBounds ();
 		modelo3D.RecalculateNormals ();
+		modelo3D.RecalculateTangents ();
 		resultado.GetComponent<MeshFilter> ().mesh = modelo3D;
 		return resultado;
 	}
